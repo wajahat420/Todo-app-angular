@@ -1,0 +1,25 @@
+<div class="item">
+    <div class="items" *ngIf="!todo.edit; else elseBlock">
+        <p>{{todo.id}}</p>
+        <p>{{todo.productName}}</p>
+        <p>{{todo.productDesc}}</p>
+        <p>{{todo.productPrice}}</p>
+        <p>{{todo.productQty}}</p>
+    </div>
+
+    <ng-template class="edit" #elseBlock>
+            <input (keyup)="onKey($event, 'id')" value="{{todo.id}}" type="text">
+            <input (keyup)="onKey($event, 'productName')" value="{{todo.productName}}" type="text">
+            <input (keyup)="onKey($event, 'productDesc')" class="productDesc" value="{{todo.productDesc}}" type="text">
+            <input (keyup)="onKey($event, 'productPrice')" value="{{todo.productPrice}}" type="text">
+            <input (keyup)="onKey($event, 'productQty')" value="{{todo.productQty}}" type="text">
+    </ng-template>
+
+    <div class="buttons">
+        <ng-template [ngIf]="todo.edit">
+            <img  src="../../../assets/tick.png" alt="">
+        </ng-template>
+        <button (click)="edit(todo.id)" class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    </div>
+</div>

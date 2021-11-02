@@ -1,0 +1,15 @@
+<div class="all-todos">
+    <div class="header">
+        <p class="id">ID</p>
+        <p>Product Name</p>
+        <p>Product Description</p>
+        <p>Product Price</p>
+        <p>Product Qty</p>
+        <p>Action</p>
+    </div>
+    
+    <div class="item" *ngFor="let todo of todos">
+        <!-- <div>{{todo.id}}</div> -->
+        <app-todo-item (editClicked)="clickedEdit($event)" [todo]="todo"></app-todo-item>
+    </div>
+</div>
